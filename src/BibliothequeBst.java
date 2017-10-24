@@ -1,3 +1,13 @@
+/*
+*
+* Auteur:   Samuel Ferron - 1843659
+*           William La Bereg - 1852751
+* Date:     24 octobre 2017
+*
+* TP4
+*
+ */
+
 import java.util.ArrayList;
 
 // Implémentation de l'interface IBibliotheque
@@ -10,14 +20,13 @@ public class BibliothequeBst implements IBibliotheque
     // Explication:
     public void ajouterLivre(String livre)
     {
-        // À compléter
+        livres.insert(livre);
     }
 
     // Complexité: O(log(n))
     // Explication:
-    public boolean contientLivre(String livre)
-    {
-        // À compléter
+    public boolean contientLivre(String livre) {
+        return livres.contains(livre);
     }
 
     // Complexité: O(n)
@@ -26,7 +35,12 @@ public class BibliothequeBst implements IBibliotheque
     //              un parcours en ordre/ascendant.
     public String afficherLivresAlpha()
     {
-        // À compléter
+        ArrayList<String> list = livres.traverseInOrder();
+        String string = "";
+        for(String e : list)
+            string+=e+"\n";
+
+        return string;
     }
 
     // Complexité: O(n)
@@ -35,6 +49,11 @@ public class BibliothequeBst implements IBibliotheque
     //              un parcours en ordre inverse/descendant.
     public String afficherLivresAlphaInverse()
     {
-        // À compléter
+        ArrayList<String> list = livres.traverseReverseOrder();
+        String string = "";
+        for(String e : list)
+            string+=e+"\n";
+
+        return string;
     }
 }
